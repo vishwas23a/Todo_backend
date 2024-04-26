@@ -5,7 +5,7 @@ const TodoModel = require("./modles/Todo");
 const Port = process.env.PORT || 3001;
 const app = express();
 app.use(cors({
-  origin:["http://localhost:3001"]
+  origin:["http://localhost:3001","https://Todo.onrender.com"]
 }));
 app.use(express.json());
 
