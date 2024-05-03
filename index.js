@@ -2,11 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const TodoModel = require("./modles/Todo");
-const Port = process.env.PORT || 3001;
+const Port = process.env.PORT||3001;
 const app = express();
-app.use(cors({
-  origin:["http://localhost:3001","https://Todo.onrender.com"]
-}));
+app.use(cors());
+
 app.use(express.json());
 
 
@@ -16,7 +15,7 @@ app.get("/get", (req, res) => {
     .then((result) => res.json(result))
     .catch((err) => res.json(err));
 });
-app.put("/update/:id", (req, res) => {
+app.put("/update/:id", (req, res) => {``
   const { id } = req.params;
   // console.log(id);
   TodoModel.findByIdAndUpdate({ _id: id }, { done: true })
